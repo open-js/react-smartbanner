@@ -92,7 +92,8 @@
     "test": "TZ=Asia/Taipei node scripts/test.js --env=jsdom",
     "coverage": "yarn run test -- --coverage",
     "coveralls": "NODE_ENV=development cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "prettier:all": "prettier --write 'src/example.js' 'src/components/**/*.js' 'config/**/*.js'"
+    "prettier:all": "prettier --write 'src/example.js' 'src/components/**/*.js' 'config/**/*.js'",
+    "prepare": "npm run build"
   },
   "lint-staged": {
     "*.js": [
