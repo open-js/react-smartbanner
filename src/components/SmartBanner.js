@@ -22,6 +22,7 @@ class SmartBanner extends Component {
     button: PropTypes.node,
     storeText: PropTypes.objectOf(PropTypes.string),
     price: PropTypes.objectOf(PropTypes.string),
+    hidePrice: PropTypes.bool,
     force: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
@@ -59,6 +60,7 @@ class SmartBanner extends Component {
       windows: 'Free',
       kindle: 'Free',
     },
+    hidePrice: false,
     force: '',
     title: '',
     author: '',
@@ -287,10 +289,8 @@ class SmartBanner extends Component {
     const link =
       `${this.props.url[this.state.type]}` ||
       this.state.settings.getStoreLink() + this.state.appId;
-    const inStore = `
-      ${this.props.price[this.state.type]} - ${
-  this.props.storeText[this.state.type]
-}`;
+    const inStore = (this.props.hidePrice ? '' : this.props.price[this.state.type] + ' - ') 
+                      + this.props.storeText[this.state.type];
     let icon;
 
     if (isClient) {
